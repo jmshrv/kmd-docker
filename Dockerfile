@@ -85,7 +85,14 @@ COPY ./dependencies/kmd_compile ./usr/local/bin/kmd_compile
 RUN gcc -O2 -o aasm aasm.c
 RUN cp aasm mnemonics /usr/local/bin
 
-RUN export KMD_HOME=/usr/local/bin
 RUN chmod +x /usr/local/bin/*
 
-CMD [ "kmd", "-v", "-e" ]
+FROM amd64/fedora:34
+
+COPY --from=builder /usr/local/bin /usr/local/bin
+
+RUN dnf install -y glib gtk+
+
+RUN export KMD_HOME=/usr/local/bin
+
+CMD [ "kmd", "-e" ]
