@@ -18,4 +18,6 @@ To access your files, navigate to `/data` in Komodo's file selector.
 
 If you're on Linux, you should probably use [this AppImage](https://github.com/Cactric/komodo-appimage/releases/latest) instead, it'll be easier than using Docker.
 
-This container uses Fedora because it's pretty much the only Distro that still includes glib and gtk+ in its repos. I have no idea why they do, but I'm not complaining. I'd rather use something like Debian since the image is a bit slimmer, but then I'd have to go through the hassle of compiling glib and gtk+.
+This container uses Debian Bullseye Slim since it's a small image and we don't really need much more. The image brings in a precompiled Komodo and extracts it to the right paths. This image used to actually compile Komodo, but I had some weird issue where `SWI 1` inputs would be doubled. I'd rather compile it in the image, but this approach works and gives a smaller image (I was using Fedora before since it has gtk+ and glib in the repos). I was also trying to compile Komodo so that I could make this container work natively on ARM, but Komodo doesn't start when compiled for ARM for some reason.
+
+`komodo-1.5.tar` was created by the University of Nottingham for installing on Ubuntu.
