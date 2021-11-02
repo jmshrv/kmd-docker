@@ -1,0 +1,12 @@
+--- src/callbacks.c	2007-10-05 16:52:43.000000000 +0100
++++ src/callbacks.c	2021-11-02 16:14:32.000000000 +0000
+@@ -3038,6 +3038,9 @@
+ //     GTK_TOGGLE_BUTTON(terminal_active_flag[terminal->dev_number])))
+      GTK_TOGGLE_BUTTON(terminal_active_flag[j])))
+     {
++      static char read = 0;
++      read = !read;        
++      if (!read) { return 1; }
+ //    key_pressed = (event->keyval) & 0xFF;
+     key_pressed = event->keyval;
+     switch (key_pressed)   /* Translate key codes if necessary and understood */

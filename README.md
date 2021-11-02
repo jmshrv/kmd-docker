@@ -1,6 +1,6 @@
 # Docker Komodo
 
-This is a Docker container that runs the Komodo ARM emulator. Komodo is an ancient piece of software, so getting it to run on modern systems is a pain. I made this container so that I could "run" Komodo on macOS without having to use a whole VM. While I couldn't get a native ARM64 build working, it still runs really well as an x86_64 container, even on M1 Macs.
+This is a Docker container that runs the Komodo ARM emulator. Komodo is an ancient piece of software, so getting it to run on modern systems is a pain. I made this container so that I could "run" Komodo on macOS without having to use a whole VM. While I couldn't get a native ARM64 build working (the window never opens), it still runs really well as an x86_64 container, even on M1 Macs.
 
 # Usage
 
@@ -18,6 +18,4 @@ To access your files, navigate to `/data` in Komodo's file selector.
 
 If you're on Linux, you should probably use [this AppImage](https://github.com/Cactric/komodo-appimage/releases/latest) instead, it'll be easier than using Docker.
 
-This container uses Debian Bullseye Slim since it's a small image and we don't really need much more. The image brings in a precompiled Komodo and extracts it to the right paths. This image used to actually compile Komodo, but I had some weird issue where `SWI 1` inputs would be doubled. I'd rather compile it in the image, but this approach works and gives a smaller image (I was using Fedora before since it has gtk+ and glib in the repos). I was also trying to compile Komodo so that I could make this container work natively on ARM, but Komodo doesn't start when compiled for ARM for some reason.
-
-`komodo-1.5.tar` was created by the University of Nottingham for installing on Ubuntu.
+This container uses Debian Bullseye Slim since it's a small image and we don't really need much more. The image builds gtk+ and glib with some patches from the AUR packages, and builds Komodo with some of the fixes and patches detailed in [this guide](https://www.notion.so/How-you-can-install-Komodo-On-Ubuntu-ad42cd90a31042efb24e9659631e7c67). As I said at the start of this README, I can't get it displaying on arm64 for some reason, so this image is amd64 only.
