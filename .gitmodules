@@ -1,0 +1,6 @@
+[submodule "dependencies/glib"]
+	path = dependencies/glib
+	url = https://aur.archlinux.org/glib.git
+[submodule "dependencies/gtk"]
+	path = dependencies/gtk
+	url = https://aur.archlinux.org/gtk.git
