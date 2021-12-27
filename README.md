@@ -20,12 +20,13 @@ You may need to reboot for this setting to take effect.
 
 # Usage
 
-Just download [Komodo.command](Komodo.command) and put it in /Applications. You
-may have to make it executable with the command `chmod +x
-/Applications/Komodo.command`. From there, you can start the script like a
-normal application (Finder, Launchpad etc). If Docker is not currently running,
-you will see a lot of repeated errors since the script basically spams the
-`docker run` command until the container starts properly.
+Just download [Komodo.command](Komodo.command) (click the "Raw" button and
+Command+S to save) and put it in /Applications. You may have to make it
+executable with the command `chmod +x /Applications/Komodo.command`. From there,
+you can start the script like a normal application (Finder, Launchpad etc). If
+Docker is not currently running, you will see a lot of repeated errors since the
+script basically spams the `docker run` command until the container starts
+properly.
 
 Your home directory will be accessible from Komodo in /data.
 
