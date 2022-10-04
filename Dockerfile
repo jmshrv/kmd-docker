@@ -79,4 +79,10 @@ RUN ldconfig
 
 RUN export KMD_HOME=/usr/local/bin
 
-CMD [ "kmd", "-e" ]
+RUN chmod +x /usr/local/bin/gtk-config 
+
+WORKDIR /usr/local/bin/
+
+RUN ./gtk-config gtk
+
+CMD ["kmd", "-e"]
