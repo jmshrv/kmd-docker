@@ -85,4 +85,6 @@ WORKDIR /usr/local/bin/
 
 RUN ./gtk-config gtk
 
+WORKDIR /
+
 CMD ["kmd", "-e"]
