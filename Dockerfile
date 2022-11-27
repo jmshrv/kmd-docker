@@ -87,4 +87,5 @@ RUN ./gtk-config gtk
 
 WORKDIR /
 
-CMD ["kmd", "-e"]
+CMD ["/usr/local/bin/kmd", "-e"]
+
